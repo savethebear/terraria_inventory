@@ -10,7 +10,7 @@
         <!-- <sidebar-link to="/maps" name="Map" icon="ti-map"/> -->
         <!-- <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/> -->
       </template>
-      <mobile-menu>
+      <!-- <mobile-menu>
         <li class="nav-item">
           <a class="nav-link">
             <i class="ti-panel"></i>
@@ -34,7 +34,7 @@
           </a>
         </li>
         <li class="divider"></li>
-      </mobile-menu>
+      </mobile-menu> -->
     </side-bar>
     <div class="main-panel">
       <!-- <top-navbar></top-navbar> -->
