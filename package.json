@@ -1,0 +1,23 @@
+{
+  "name": "terraria_inventory",
+  "version": "1.0.0",
+  "description": "show craftable items",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savethebear/terraria_inventory.git"
+  },
+  "author": "Christopher Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/savethebear/terraria_inventory/issues"
+  },
+  "homepage": "https://github.com/savethebear/terraria_inventory#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  }
+}
