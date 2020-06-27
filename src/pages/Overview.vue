@@ -41,20 +41,7 @@ export default {
         {
           title: "Weapons",
           tableColumns: ["Item", "Quantity"],
-          tableData: [
-            // {
-            //   item: "Wand",
-            //   quantity: 2
-            // },
-            // {
-            //   item: "Sword",
-            //   quantity: 1
-            // },
-            // {
-            //   item: "Whip",
-            //   quantity: 5
-            // }
-          ]
+          tableData: []
         }
       ]
     };
