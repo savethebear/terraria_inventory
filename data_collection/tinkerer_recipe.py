@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import urllib.request
-import csv
 import json
 
 class Item:
@@ -28,14 +27,12 @@ soup = BeautifulSoup(html_page, 'lxml')
 table = soup.find("div", class_='crafts').table.tbody
 rows = table.find_all("tr")[1:]
 
-with open("recipes.csv", 'w', newline='') as f:
-    writer = csv.writer(f)
-
-    # header
-    writer.writerow(["result", "ingredients"])
-
+with open("tinker_recipes.json", 'w') as f:
+    output = []
     prev_result = None
     for row in rows:
+        row_obj = {}
+
         # compute result
         result = row.find('td', class_="result")
         if result is None:
@@ -44,8 +41,8 @@ with open("recipes.csv", 'w', newline='') as f:
             result = result.a
             prev_result = result
         
-        result_obj = Item(result['title'], result.img['src'], MAIN_SITE + result.get('href'))
-        
+        row_obj['result'] = Item(result['title'], result.img['src'], MAIN_SITE + result.get('href')).get_obj()
+
         # compute ingredients
         objects = []
         ingredients = row.find('td', class_="ingredients").find_all('li')
@@ -55,5 +52,7 @@ with open("recipes.csv", 'w', newline='') as f:
                 Item(details['title'], details.img['src'], MAIN_SITE + details['href']).get_obj()
             )
         
-        writer.writerow([result_obj.get_str(), json.dumps(objects, separators=(',', ':'))])
-        
+        row_obj["ingredients"] = objects
+        output.append(row_obj)
+
+    json.dump(output, f)
