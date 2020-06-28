@@ -41,23 +41,13 @@ export default {
               {
                 title: "Craftable Tools",
                 tableColumns: ["Result", "Ingredients"],
-                tableData: [
-                  {
-                    result: "Amber Horseshoe Balloon",
-                    result_icon: "https://gamepedia.cursecdn.com/terraria_gamepedia/8/8e/Amber_Horseshoe_Balloon.png?version=f82cce573c254c2b2dee7341800e388f",
-                    ingredients: [
-                      {ingredient: "Lucky Horseshoe", icon: "https://gamepedia.cursecdn.com/terraria_gamepedia/d/d7/Lucky_Horseshoe.png?version=f31cd1c9751200c0ec303b6498332c2f"}, 
-                      {ingredient: "Honey Balloon", icon: "https://gamepedia.cursecdn.com/terraria_gamepedia/b/b8/Honey_Balloon.png?version=c574998f0819b1b72730357e68bec330"}
-                    ],
-                  }
-                ]
+                tableData: []
               }
             ]
         }
     },
     created() {
       this.tinkererData[0].tableData = TinkerTools;
-      console.log(TinkerTools);
     }
 }
 
