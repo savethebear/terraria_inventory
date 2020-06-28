@@ -10,11 +10,14 @@
               <th>Ingredients</th>
             </template>
             <template slot-scope="{row}">
-              <td>{{row.result}}</td>
               <td>
-                <div v-for="ingredient in row.ingredients" :key="ingredient">
-                  <img :src="ingredient.icon">
-                  <div class="ingredient_content">{{ ingredient.ingredient }}</div>
+                <img :src="row.result.img_src"/>
+                <div class="ingredient_content">{{row.result.name}}</div>
+              </td>
+              <td>
+                <div v-for="ingredient in row.ingredients" :key="ingredient.name">
+                  <img :src="ingredient.img_src">
+                  <div class="ingredient_content">{{ ingredient.name }}</div>
                 </div>
               </td>
             </template>
@@ -26,6 +29,7 @@
 </template>
 <script>
 import { PaperTable } from "@/components/index";
+import TinkerTools from "../data/tinker_recipes.json";
 export default {
     components: {
         PaperTable
@@ -50,6 +54,10 @@ export default {
               }
             ]
         }
+    },
+    created() {
+      this.tinkererData[0].tableData = TinkerTools;
+      console.log(TinkerTools);
     }
 }
 
