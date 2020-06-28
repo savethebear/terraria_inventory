@@ -5,6 +5,7 @@ import NotFound from "@/pages/NotFoundPage.vue";
 // Admin pages
 import Dashboard from "@/pages/Dashboard.vue";
 import Overview from "@/pages/Overview.vue";
+import TinkererPage from "@/pages/TinkererPage.vue";
 
 const routes = [
   {
@@ -21,6 +22,11 @@ const routes = [
         path: "overview",
         name: "overview",
         component: Overview
+      },
+      {
+        path: "tinkerer_page",
+        name: "tinkerer_page",
+        component: TinkererPage
       }
     ]
   },

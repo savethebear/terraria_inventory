@@ -4,6 +4,7 @@
       <template slot="links">
         <sidebar-link to="/overview" name="Overview" icon="ti-home"/>
         <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
+        <sidebar-link to="/tinkerer_page" name="Tinker Items" icon="ti-pencil-alt2"/>
         <!-- <sidebar-link to="/stats" name="User Profile" icon="ti-user"/> -->
         <!-- <sidebar-link to="/table-list" name="Table List" icon="ti-view-list-alt"/> -->
         <!-- <sidebar-link to="/typography" name="Typography" icon="ti-text"/> -->
