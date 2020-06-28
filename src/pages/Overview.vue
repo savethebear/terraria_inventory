@@ -46,6 +46,12 @@ export default {
       ]
     };
   },
+  created() {
+    const stored_data = localStorage.getItem("user_inventory_data_key");
+    if (stored_data) {
+      this.overviewData[0].tableData = JSON.parse(stored_data);
+    }
+  },
   methods: {
     triggerImport() {
       document.getElementById("input").click();
@@ -98,7 +104,9 @@ export default {
         const _this = this;
         reader.onloadend = function() {
           // TODO: Put items into buckets (tools, weapons, materials)
-          _this.overviewData[0].tableData = _this.convertJSON(this.result);
+          const json_obj = _this.convertJSON(this.result);
+          _this.overviewData[0].tableData = json_obj;
+          localStorage.setItem("user_inventory_data_key", JSON.stringify(json_obj));
         }
         reader.readAsText(file);
       } else {
