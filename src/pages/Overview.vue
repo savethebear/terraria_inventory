@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="row justify-content-end">
-        <p-button @click.native="triggerImport" type="info">Import User Data</p-button>
+        <p-button @click.native="triggerImport" type="info">Import Inventory Data</p-button>
         <input type="file" id="input" style="display:none;" @change="importData" />
       </div>
     </div>
