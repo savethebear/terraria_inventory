@@ -48,6 +48,7 @@ export default {
     },
     created() {
       this.tinkererData[0].tableData = TinkerTools;
+      this.userItems = localStorage.getItem();
     }
 }
 

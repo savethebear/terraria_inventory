@@ -29,6 +29,7 @@
 import { PaperTable } from "@/components/index";
 import { Button as PButton } from "@/components";
 import { dataHelper } from "../utils/DataHelper.js";
+import { storageKeys } from "../utils/StorageKeys.js";
 
 export default {
   components: {
@@ -54,7 +55,7 @@ export default {
     };
   },
   created() {
-    const stored_data = localStorage.getItem("user_inventory_data_key");
+    const stored_data = localStorage.getItem(storageKeys.USER_INVENTORY_DATA_KEY);
     if (stored_data) {
       this.overviewData[0].tableData = JSON.parse(stored_data);
     }
@@ -81,7 +82,7 @@ export default {
           if (!inputs[j]) {
             isValid = false;
           } else {
-            obj[headers[j]] = inputs[j].tolowerCase();
+            obj[headers[j]] = inputs[j];
           }
         }
         if (isValid) {
@@ -114,7 +115,7 @@ export default {
           const json_obj = _this.convertJSON(this.result);
           _this.overviewData[0].tableData = json_obj;
           localStorage.setItem(
-            "user_inventory_data_key",
+            storageKeys.USER_INVENTORY_DATA_KEY,
             JSON.stringify(json_obj)
           );
         };
