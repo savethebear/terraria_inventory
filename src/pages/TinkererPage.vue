@@ -30,6 +30,8 @@
 <script>
 import { PaperTable } from "@/components/index";
 import TinkerTools from "../data/tinker_recipes.json";
+import { storageKeys } from "../utils/StorageKeys.js";
+
 export default {
     components: {
         PaperTable
@@ -47,8 +49,26 @@ export default {
         }
     },
     created() {
-      this.tinkererData[0].tableData = TinkerTools;
-      this.userItems = localStorage.getItem();
+      this.userItems = JSON.parse(localStorage.getItem(storageKeys.USER_INVENTORY_DATA_KEY));
+
+      // index user items
+      const userItemsSet = {};
+      this.userItems.forEach(item => {
+        userItemsSet[item.item.toLowerCase()] = true;
+      });
+
+      const output = [];
+      TinkerTools.forEach(row => {
+        let isCraftable = true;
+        for (let i = 0; i < row.ingredients.length; i++) {
+          if (!userItemsSet[row.ingredients[i].name.toLowerCase()]) {
+            isCraftable = false;
+          }
+        }
+        if (isCraftable) output.push(row);
+      });
+
+      this.tinkererData[0].tableData = output;
     }
 }
 
