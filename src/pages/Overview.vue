@@ -16,7 +16,7 @@
               <th>Quantity</th>
             </template>
             <template slot-scope="{row}">
-              <td>{{row.item}}</td>
+              <td>{{ capitaliseEveryWord(row.item) }}</td>
               <td>{{row.quantity}}</td>
             </template>
           </paper-table>
@@ -28,12 +28,14 @@
 <script>
 import { PaperTable } from "@/components/index";
 import { Button as PButton } from "@/components";
+import { dataHelper } from "../utils/DataHelper.js";
+
 export default {
   components: {
     PaperTable,
     PButton
   },
-
+  mixins: [dataHelper],
   data() {
     return {
       HEADERS: ["item", "quantity"],
@@ -103,7 +105,7 @@ export default {
       return true;
     },
     importData() {
-      const file = document.getElementById('input').files[0];
+      const file = document.getElementById("input").files[0];
       if (file.type === "text/csv") {
         let reader = new FileReader();
         const _this = this;
@@ -111,8 +113,11 @@ export default {
           // TODO: Put items into buckets (tools, weapons, materials)
           const json_obj = _this.convertJSON(this.result);
           _this.overviewData[0].tableData = json_obj;
-          localStorage.setItem("user_inventory_data_key", JSON.stringify(json_obj));
-        }
+          localStorage.setItem(
+            "user_inventory_data_key",
+            JSON.stringify(json_obj)
+          );
+        };
         reader.readAsText(file);
       } else {
         alert("invalid file type");
