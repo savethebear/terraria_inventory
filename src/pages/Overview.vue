@@ -39,6 +39,11 @@ export default {
       HEADERS: ["item", "quantity"],
       overviewData: [
         {
+          title: "Tools",
+          tableColumns: ["Item", "Quantity"],
+          tableData: []
+        },
+        {
           title: "Weapons",
           tableColumns: ["Item", "Quantity"],
           tableData: []
@@ -74,7 +79,7 @@ export default {
           if (!inputs[j]) {
             isValid = false;
           } else {
-            obj[headers[j]] = inputs[j];
+            obj[headers[j]] = inputs[j].tolowerCase();
           }
         }
         if (isValid) {
