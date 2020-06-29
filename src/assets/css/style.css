@@ -2,3 +2,7 @@
     display: inline-block;
     margin: 2px 0 0 3px;
 }
+
+.row.section {
+    margin-bottom: 20px;
+}

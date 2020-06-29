@@ -1,10 +1,8 @@
 <template>
   <div>
-    <div class="container">
-      <div class="row justify-content-end">
-        <p-button @click.native="triggerImport" type="info">Import Inventory Data</p-button>
-        <input type="file" id="input" style="display:none;" @change="importData" />
-      </div>
+    <div class="row justify-content-end section col-12">
+      <p-button @click.native="triggerImport" type="info">Import Inventory Data</p-button>
+      <input type="file" id="input" style="display:none;" @change="importData" />
     </div>
     <div class="row">
       <div class="col-md-6 col-12" v-for="table in overviewData" :key="table.title">
