@@ -29,8 +29,8 @@
 </template>
 <script>
 import { PaperTable } from "@/components/index";
-import TinkerTools from "../data/tinker_recipes.json";
-import { storageKeys } from "../utils/StorageKeys.js";
+import TinkerTools from "@/data/tinker_recipes.json";
+import { storageKeys } from "@/utils/StorageKeys.js";
 
 export default {
     components: {
