@@ -106,3 +106,6 @@ dist
 #python
 venv/
 .vscode/
+
+# data collection ignore
+item_icons/
