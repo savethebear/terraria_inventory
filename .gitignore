@@ -106,6 +106,7 @@ dist
 #python
 venv/
 .vscode/
+__pycache__/
 
 # data collection ignore
 item_icons/
