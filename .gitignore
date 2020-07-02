@@ -110,3 +110,4 @@ __pycache__/
 
 # data collection ignore
 item_icons/
+test_images/

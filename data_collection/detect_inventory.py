@@ -5,7 +5,7 @@ import sys
 import os
 from helper import *
 
-image = cv2.imread("inventory_test.png")
+image = cv2.imread("test_images/inventory_test.png")
 print("image dim: {}".format(image.shape))
 
 # Grayscale 
