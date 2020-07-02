@@ -22,10 +22,7 @@ print("Number of Contours found = " + str(len(contours)))
 
 # Draw all contours 
 # -1 signifies drawing all contours 
-# cv2.drawContours(image, contours, -1, (0, 255, 0), 3)
-# cv2.imshow('Contours', image)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows() 
+
 
 items = []
 for contour in contours:

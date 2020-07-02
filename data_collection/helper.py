@@ -1,3 +1,5 @@
+import cv2
+
 import sys
 
 
@@ -20,9 +22,17 @@ def contour_bounding_box(contour):
 
     return (min_x, max_x, min_y, max_y)
 
+
 def crop_image(image, bounding_box):
 
     pass
+
+
+def show_contours():
+    cv2.drawContours(image, contours, -1, (0, 255, 0), 3)
+    cv2.imshow('Contours', image)
+    cv2.waitKey(0)
+
 
 class Item:
     def __init__(self, bounding_box, patch):
