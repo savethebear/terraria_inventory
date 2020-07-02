@@ -20,12 +20,9 @@ contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_A
   
 print("Number of Contours found = " + str(len(contours)))
 
-# Draw all contours 
-# -1 signifies drawing all contours 
-
-
 items = []
 for contour in contours:
+    # crop image
     bounding_box = contour_bounding_box(contour)
     patch = image[bounding_box[0]:bounding_box[1], bounding_box[2]:bounding_box[3]]
 
