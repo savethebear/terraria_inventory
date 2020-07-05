@@ -3,22 +3,31 @@ import numpy as np
 
 import sys
 import os
+from os import listdir
+from os.path import isfile, join
 from helper import *
 
-image = cv2.imread("test_images/inventory_test.png")
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__)) + "/"
+TEST_IMAGES_DIR = SCRIPT_DIR + "test_images/"
+ITEM_ICONS_DIR = SCRIPT_DIR + "item_icons/"
+
+image = cv2.imread(TEST_IMAGES_DIR + "item_test.png")
 print("image dim: {}".format(image.shape))
 
 # Grayscale 
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) 
 
 # Thresholding
-lower_bound = 50
+lower_bound = 60
 upper_bound = 255
 _, threshold = cv2.threshold(gray, lower_bound, upper_bound, cv2.THRESH_BINARY)
 
 contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
   
 print("Number of Contours found = " + str(len(contours)))
+
+# preprocess images
+
 
 items = []
 for contour in contours:
@@ -31,9 +40,14 @@ for contour in contours:
     pixel_range = 20
     dim = patch.shape
     if (abs(dim[0] - target) <= pixel_range) and (abs(dim[1] - target) <= pixel_range):
-        items.append(Item(bounding_box, patch))
+        items.append(Item(bounding_box, cv2.resize(patch, (59, 59), interpolation=cv2.INTER_AREA)))
 
 if len(items) != 40:
     print("Inventory extraction error...")
     sys.exit(1)
+
+
+# load in ground truth icons
+icon_files = [f for f in listdir(ITEM_ICONS_DIR) if isfile(join(ITEM_ICONS_DIR, f)) and str(f).endswith(".png")]
+icon_images = [cv2.resize(cv2.imread(ITEM_ICONS_DIR + f), (59, 59), interpolation=cv2.INTER_AREA) for f in icon_files]
 
