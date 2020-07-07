@@ -30,9 +30,17 @@ def show_contours(image, contours):
     cv2.waitKey(0)
 
 
-def reduce_background_noise(image, redness_target, error):
+def reduce_background_noise(image, targets, error):
     # r = 90 - 100
     # gb = 45 - 55
+    red_target = targets[0]
+    green_target = targets[1]
+    blue_target = targets[2]
+
+    
+    pass
+
+def within_range(value, range):
     pass
 
 def ssd(image_a, image_b):

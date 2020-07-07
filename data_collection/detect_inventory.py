@@ -27,6 +27,10 @@ contours, hierarchy = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_A
 print("Number of Contours found = " + str(len(contours)))
 
 # preprocess images
+RED_RANGE = (50, 60)
+BLUE_RANGE = (45, 55)
+GREEN_RANGE = (45, 55)
+
 
 
 items = []
